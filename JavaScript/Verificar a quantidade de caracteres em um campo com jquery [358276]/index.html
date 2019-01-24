@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta charset="utf-8">
+
+    </head>
+    <body>
+        <div class="styled-input">
+            <form id="form">
+                <label style="font-weight: normal" for="senha">Senha:<span style="color: red">*</span></label>
+                <input type="password" name="Senha" minlength="4" maxlength="12" id="senha">
+                <input type="submit" name="Submit!">
+            </form>
+        </div>
+        <div id="msg-error"></div>
+    </body>
+    <script type="text/javascript">
+        $('#form').on('submit', function(event) {
+            event.preventDefault();
+
+            senha = $('#senha');
+            alvo_erro = $('#msg-error');
+
+            if (senha.val().length < 4 || senha.val().length > 12) {
+                alvo_erro.html('<div class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i> Sua senha deve ter entre 6 e 12 caracteres!</div>');
+            } else {
+                //.....
+                console.log('Passou na validação!');
+                alvo_erro.empty();
+            }
+        });
+
+    </script>
+</html>
